@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body bgcolor="#00ffcc">  
+
+  <script>
+    var n = new Array(6);
+    var score = new Array(6);
+    n[0] = "Wang  ";
+    score[0] = 80;
+    n[1] = "chen  ";
+    score[1] = 75;
+    n[2] = "Zhao  ";
+    score[2] = 92;
+    n[3] = "Liu  ";
+    score[3] = 60;
+    n[4] = "Yamamoto  ";
+    score[4] = 91;
+    n[5] = "Tanaka  ";
+    score[5] = 82;
+    
+    document.write("<strong> <h2> There are six students. Their scores are as follows.</h2>  </strong>");
+
+    // students results.
+    var str = "";
+    for (var i = 0; i < 6; i++) {
+      str = n[i] + score[i] + ".<br/>";
+      document.write(str);
+    }
+
+    // Function to filter students who scored A (score >= 90)
+    function filterAStudents(student) {
+      return student.score >= 90;
+    }
+
+    // Create an array of student objects
+    var students = [];
+    for (var i = 0; i < 6; i++) {
+      students.push({ name: n[i], score: score[i] });
+    }
+
+    // Filter the students who scored A
+    var aStudents = students.filter(filterAStudents);
+
+    // Display the names of A students
+    document.write("<br/> <strong> <h2> The following students are students who can get A . </h2> </strong>");
+    aStudents.forEach(function(student) {
+      document.write(student.name + ' ' + student.score + "<br/>");
+    });
+
+    // Sort scores in descending order
+    students.sort(function(a, b) {
+      return b.score - a.score;
+    });
+
+    // Display the names and scores of all students
+    document.write("<br/> <strong> <h2> Sort scores in descending order. </h2> </strong>");
+    students.forEach(function(student) {
+      document.write(student.name + ' ' + student.score + "<br/>");
+    });
+
+  </script>
+</body> 
+</html>
